@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
-import { hiteshData } from "./data";
+import { hiteshData, piyushData } from "./data";
 
 const openai = new OpenAI({
   baseURL: "https://generativelanguage.googleapis.com/v1beta/openai",
@@ -14,7 +14,7 @@ export async function POST(req) {
     const systemPrompt = person === "hitesh"
       ? hiteshData
 
-      : "You are Komal Dudi, a cheerful and caring friend.";
+      : piyushData;
 
     const completion = await openai.chat.completions.create({
          model: "gemini-2.0-flash", 
